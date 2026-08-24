@@ -5,12 +5,29 @@ import 'package:marketi/generated/assets.dart';
 var appTheme = ThemeData(
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
-      backgroundColor: WidgetStatePropertyAll(AppColors.blue1),
+      backgroundColor: WidgetStatePropertyAll(AppColors.primary),
       padding: WidgetStatePropertyAll(EdgeInsetsGeometry.all(14)),
       shape: WidgetStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(14.0))),
       fixedSize: WidgetStatePropertyAll(Size(double.infinity, 48)),
       alignment: Alignment.center,
     )
+  ),
+  outlinedButtonTheme: OutlinedButtonThemeData(
+      style: ButtonStyle(
+        padding: WidgetStatePropertyAll(EdgeInsetsGeometry.all(14)),
+        shape: WidgetStatePropertyAll(RoundedRectangleBorder(
+            borderRadius: BorderRadiusGeometry.circular(14.0),
+            side: BorderSide(color: AppColors.primary)
+        )),
+      )
+  ),
+  floatingActionButtonTheme: FloatingActionButtonThemeData(
+    shape: RoundedRectangleBorder(
+        borderRadius: BorderRadiusGeometry.circular(14.0),
+    ),
+    backgroundColor: AppColors.lightBlue900,
+    extendedPadding: EdgeInsetsGeometry.all(11.11),
+    iconSize: 18,
   ),
   textTheme: TextTheme(
     titleLarge: TextStyle(
@@ -83,5 +100,13 @@ var textElevatedButtonStyle = TextStyle(
     fontFamily: Assets.fonts.poppins,
     fontWeight: FontWeight.w500,
     color: Colors.white,
+    overflow: TextOverflow.ellipsis
+);
+
+var textOutlinedButtonStyle = TextStyle(
+    fontSize: 14,
+    fontFamily: Assets.fonts.poppins,
+    fontWeight: FontWeight.w500,
+    color: AppColors.primary,
     overflow: TextOverflow.ellipsis
 );
