@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:marketi/core/routes/app_router.dart';
 
-void main() {
+import 'core/service/service_locator.dart';
+import 'core/storage/cache/cache_helper.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  setupServiceLocator();
+  await getIt<CacheHelper>().init();
   runApp(const MyApp());
 }
 

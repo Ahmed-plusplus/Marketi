@@ -37,6 +37,9 @@ dependencies:
   dio: ^5.11.0
   flutter_svg: ^2.0.10
   go_router: ^17.5.0
+  shared_preferences: ^2.5.5
+  dartz: ^0.10.1
+  get_it: ^9.2.1
 
 
 dev_dependencies:
@@ -80,7 +83,7 @@ flutter:
   fonts:
     - family: Poppins
       fonts:
-         - asset: fonts/Poppins-Regular.ttf
+         - asset: assets/fonts/Poppins-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
