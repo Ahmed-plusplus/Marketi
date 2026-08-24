@@ -7,6 +7,7 @@ class Assets {
   Assets._();
 
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsFontsGen fonts = $AssetsFontsGen();
 }
 
 class $AssetsImagesGen {
@@ -307,4 +308,10 @@ class SvgGenImage {
   String get path => _assetName;
 
   String get keyName => _assetName;
+}
+
+class $AssetsFontsGen {
+  const $AssetsFontsGen();
+
+  final String poppins = 'Poppins';
 }
