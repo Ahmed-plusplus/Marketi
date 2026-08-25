@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:marketi/core/routes/routes_name.dart';
+import 'package:marketi/features/auth/presentation/viewmodel/cubit/auth_cubit.dart';
 import 'package:marketi/features/auth/presentation/views/change_password_view.dart';
 import 'package:marketi/features/auth/presentation/views/forget_password_with_email_view.dart';
 import 'package:marketi/features/auth/presentation/views/forget_password_with_phone_view.dart';
@@ -49,7 +50,10 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: RoutesName.signIn,
-      builder: (context, state) => const LoginView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => AuthCubit(),
+        child: const LoginView(),
+      ),
     ),
     GoRoute(
       path: RoutesName.signUp,

@@ -6,7 +6,6 @@ var appTheme = ThemeData(
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
       backgroundColor: WidgetStatePropertyAll(AppColors.primary),
-      padding: WidgetStatePropertyAll(EdgeInsetsGeometry.all(14)),
       shape: WidgetStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(14.0))),
       fixedSize: WidgetStatePropertyAll(Size(double.infinity, 48)),
       alignment: Alignment.center,
@@ -17,8 +16,8 @@ var appTheme = ThemeData(
         padding: WidgetStatePropertyAll(EdgeInsetsGeometry.all(14)),
         shape: WidgetStatePropertyAll(RoundedRectangleBorder(
             borderRadius: BorderRadiusGeometry.circular(14.0),
-            side: BorderSide(color: AppColors.primary)
         )),
+        side: WidgetStatePropertyAll(BorderSide(color: AppColors.lightBlue700.withAlpha(180))),
       )
   ),
   floatingActionButtonTheme: FloatingActionButtonThemeData(
