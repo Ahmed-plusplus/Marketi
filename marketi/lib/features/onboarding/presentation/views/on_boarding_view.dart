@@ -24,33 +24,36 @@ class _OnBoardingViewState extends State<OnBoardingView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Align(
-          alignment: AlignmentGeometry.bottomCenter,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 14.0),
-            child: BlocConsumer<OnBoardingCubit, OnBoardingStates>(
-              listener: (context, state) {},
-              builder: (context, state) {
-                OnBoardingCubit cubit = OnBoardingCubit.get(context);
-                return ListView(
-                  physics: const BouncingScrollPhysics(),
-                  children: [
-                    OnBoardingWidgetBody(
-                      onPageChanged: (index) {
-                        setState(() {
-                          cubit.onPageChanged(index);
-                        });
-                      },
-                      controller: controller,
-                    ),
-                    const SizedBox(height: 34),
-                    OnBoardingButton(currentIndex: cubit.currentIndex, controller: controller),
-                    const SizedBox(height: 48),
-                  ],
-                );
-              }
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 14.0),
+              child: BlocConsumer<OnBoardingCubit, OnBoardingStates>(
+                listener: (context, state) {},
+                builder: (context, state) {
+                  OnBoardingCubit cubit = OnBoardingCubit.get(context);
+                  return ListView(
+                    shrinkWrap: true,
+                    physics: const BouncingScrollPhysics(),
+                    children: [
+                      OnBoardingWidgetBody(
+                        onPageChanged: (index) {
+                          setState(() {
+                            cubit.onPageChanged(index);
+                          });
+                        },
+                        controller: controller,
+                      ),
+                      const SizedBox(height: 34),
+                      OnBoardingButton(currentIndex: cubit.currentIndex, controller: controller),
+                      const SizedBox(height: 14),
+                    ],
+                  );
+                }
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );
