@@ -53,15 +53,17 @@ class _LoginViewState extends State<LoginView> {
                       ),
                     ),
                     const SizedBox(height: 22,),
-                    Center(child: Assets.images.logoLogin.image(width: 272, height: 232),),
+                    Assets.images.logoLogin.image(width: 272, height: 232),
                     const SizedBox(height: 32,),
                     CustomTextField(
                       controller: emailController,
                       hintText: AppStrings.usernameOrEmailHint,
                       prefixIcon: Assets.images.emailIcon.svg(width: 16, height: 16),
                     ),
+                    SizedBox(height: 14,),
                     CustomTextField(
                       controller: passwordController,
+                      hintText: AppStrings.password,
                       prefixIcon: Assets.images.passwordIcon.svg(width: 16, height: 16),
                       suffixIcon: GestureDetector(
                         onTap: () => cubit.changeLoginPasswordVisibility(),
@@ -69,6 +71,7 @@ class _LoginViewState extends State<LoginView> {
                       ),
                       obscureText: cubit.isLoginPasswordVisible,
                     ),
+                    SizedBox(height: 6,),
                     Row(
                       children: [
                         Checkbox(
@@ -78,13 +81,19 @@ class _LoginViewState extends State<LoginView> {
                         Text(AppStrings.rememberMe),
                         Spacer(),
                         GestureDetector(
-                          onTap: () => customReplacementNavigate(context, RoutesName.forgetPasswordWithPhone),
+                          onTap: () => customNavigate(context, RoutesName.forgetPasswordWithPhone),
                           child: Text(AppStrings.forgetPassword, style: TextStyle(color: AppColors.primary),),
                         ),
                       ],
                     ),
-                    CustomElevatedButton(text: AppStrings.login, onPressed: () => null),
+                    SizedBox(height: 20,),
+                    CustomElevatedButton(
+                      text: AppStrings.login,
+                      onPressed: () => cubit.login(emailController.text, passwordController.text),
+                    ),
+                    SizedBox(height: 14,),
                     Text(AppStrings.loginWith),
+                    SizedBox(height: 16,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -95,16 +104,18 @@ class _LoginViewState extends State<LoginView> {
                         AccountButton(icon: Assets.images.facebokIcon.svg())
                       ],
                     ),
+                    SizedBox(height: 14,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(AppStrings.newUser),
                         GestureDetector(
-                          onTap: () => customReplacementNavigate(context, RoutesName.signUp),
+                          onTap: () => customNavigate(context, RoutesName.signUp),
                           child: Text(AppStrings.register, style: TextStyle(color: AppColors.primary),),
                         ),
                       ],
                     ),
+                    SizedBox(height: 72,),
                   ],
                 );
               }

@@ -8,3 +8,7 @@ void customNavigate(BuildContext context, String path, {Object? extra}) {
 void customReplacementNavigate(BuildContext context, String path) {
   GoRouter.of(context).pushReplacement(path);
 }
+
+void customNavigateAndRemoveAllPrevious(BuildContext context, String path){
+  GoRouter.of(context).go(path);
+}

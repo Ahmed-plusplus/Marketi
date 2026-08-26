@@ -7,7 +7,7 @@ var appTheme = ThemeData(
     style: ButtonStyle(
       backgroundColor: WidgetStatePropertyAll(AppColors.primary),
       shape: WidgetStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(14.0))),
-      fixedSize: WidgetStatePropertyAll(Size(double.infinity, 48)),
+      fixedSize: WidgetStatePropertyAll(Size(double.maxFinite, 48)),
       alignment: Alignment.center,
     )
   ),
@@ -91,7 +91,10 @@ var appTheme = ThemeData(
       fontFamily: Assets.fonts.poppins,
       overflow: TextOverflow.ellipsis,
     ),
-  )
+  ),
+  checkboxTheme: CheckboxThemeData(
+    fillColor: WidgetStatePropertyAll(AppColors.primary),
+  ),
 );
 
 var textElevatedButtonStyle = TextStyle(
@@ -109,3 +112,20 @@ var textOutlinedButtonStyle = TextStyle(
     color: AppColors.primary,
     overflow: TextOverflow.ellipsis
 );
+
+var textHintStyle = TextStyle(
+    fontSize: 12,
+    fontFamily: Assets.fonts.poppins,
+    fontWeight: FontWeight.w400,
+    color: AppColors.placeHolder,
+    overflow: TextOverflow.ellipsis
+);
+
+var textInputStyle = TextStyle(
+    fontSize: 18,
+    fontFamily: Assets.fonts.poppins,
+    fontWeight: FontWeight.w400,
+    color: AppColors.darkBlue900,
+    overflow: TextOverflow.ellipsis
+);
+
