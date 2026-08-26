@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marketi/core/routes/app_navigation.dart';
 import 'package:marketi/core/utils/app_strings.dart';
 import 'package:marketi/core/widgets/custom_back_button.dart';
 import 'package:marketi/core/widgets/custom_elevated_button.dart';
@@ -32,7 +33,22 @@ class _SignupViewState extends State<SignupView> {
           padding: const EdgeInsets.all(14.0),
           child: SingleChildScrollView(
             child: BlocConsumer<AuthCubit, AuthStates>(
-              listener: (context, state){},
+              listener: (context, state){
+                if(state is SignupSuccessfulStates){
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(state.message!),
+                    ),
+                  );
+                  customBackNavigation(context);
+                } else if(state is SignupFailedStates){
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(state.message),
+                    ),
+                  );
+                }
+              },
               builder: (context, state) {
                 _cubit = AuthCubit.get(context);
                 return Column(
