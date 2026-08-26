@@ -55,13 +55,13 @@ class _LoginViewState extends State<LoginView> {
                     const SizedBox(height: 22,),
                     Assets.images.logoLogin.image(width: 272, height: 232),
                     const SizedBox(height: 32,),
-                    CustomTextField(
+                    CustomTextFormField(
                       controller: emailController,
                       hintText: AppStrings.usernameOrEmailHint,
                       prefixIcon: Assets.images.emailIcon.svg(width: 16, height: 16),
                     ),
                     SizedBox(height: 14,),
-                    CustomTextField(
+                    CustomTextFormField(
                       controller: passwordController,
                       hintText: AppStrings.password,
                       prefixIcon: Assets.images.passwordIcon.svg(width: 16, height: 16),
@@ -77,6 +77,8 @@ class _LoginViewState extends State<LoginView> {
                         Checkbox(
                           value: cubit.isRememberMeChecked,
                           onChanged: (isChecked) => cubit.changeRememberMeCheck(),
+                          activeColor: AppColors.primary,
+                          checkColor: Colors.white,
                         ),
                         Text(AppStrings.rememberMe),
                         Spacer(),

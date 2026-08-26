@@ -17,3 +17,13 @@ class LoginFailedStates extends AuthStates {
   String message;
   LoginFailedStates(this.message);
 }
+
+class SignupLoadingStates extends AuthStates {}
+class SignupSuccessfulStates extends AuthStates {
+  String? message;
+  SignupSuccessfulStates(this.message);
+}
+class SignupFailedStates extends AuthStates {
+  String message;
+  SignupFailedStates(this.message);
+}

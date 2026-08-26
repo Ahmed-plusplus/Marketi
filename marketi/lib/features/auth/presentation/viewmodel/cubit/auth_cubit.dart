@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marketi/core/service/service_locator.dart';
+import 'package:marketi/features/auth/data/models/signup_params.dart';
 import 'package:marketi/features/auth/data/repositories/auth_repository.dart';
 import 'package:marketi/features/auth/presentation/viewmodel/cubit/auth_states.dart';
 
@@ -44,6 +45,15 @@ class AuthCubit extends Cubit<AuthStates>{
     response.fold(
       (signInModel) => emit(LoginSuccessfulStates(signInModel.message)),
         (failure) => emit(LoginFailedStates(failure.errMessage))
+    );
+  }
+
+  Future<void> signup(SignupParams params) async {
+    emit(SignupLoadingStates());
+    final response = await _repository.signup(params);
+    response.fold(
+            (message) => emit(SignupSuccessfulStates(message)),
+            (failure) => emit(SignupFailedStates(failure.errMessage))
     );
   }
 }

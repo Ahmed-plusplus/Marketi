@@ -6,6 +6,7 @@ import 'package:marketi/core/network/errors/failure.dart';
 import 'package:marketi/core/storage/cache/cache_helper.dart';
 import 'package:marketi/core/storage/cache/cache_key.dart';
 import 'package:marketi/features/auth/data/models/signin_model.dart';
+import 'package:marketi/features/auth/data/models/signup_params.dart';
 
 class AuthRepository {
 
@@ -37,5 +38,21 @@ class AuthRepository {
 
   String? getToken(){
     return cacheHelper.getData(key: CacheKey.token);
+  }
+
+  Future<Either<String, Failure>> signup(SignupParams params) async{
+    try {
+      var response = await api.post(EndPoint.signUp, data: {
+        ApiKey.name: params.name,
+        ApiKey.phone: params.phone,
+        ApiKey.email: params.email,
+        ApiKey.password: params.password,
+        ApiKey.confirmPassword: params.password
+      });
+      var message = response[ApiKey.message];
+      return Left(message);
+    } on ServerException catch(e){
+      return Right(Failure(errMessage: e.errModel.errorMessage));
+    }
   }
 }

@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:marketi/core/utils/app_colors.dart';
 import 'package:marketi/core/utils/app_themes.dart';
 
-class CustomTextField extends StatelessWidget {
-  const CustomTextField({
+class CustomTextFormField extends StatelessWidget {
+  const CustomTextFormField({
     super.key,
     required this.controller,
     this.labelText,
     this.hintText,
+    this.validator,
     this.onChanged,
     this.onFieldSubmitted,
     this.keyboardType,
@@ -19,6 +20,7 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
   final String? labelText;
   final String? hintText;
+  final FormFieldValidator<String>? validator;
   final Function(String)? onChanged;
   final Function(String)? onFieldSubmitted;
   final bool? obscureText;
@@ -31,7 +33,7 @@ class CustomTextField extends StatelessWidget {
     return (labelText == null) ? createTextField()
     : Column(
       children: [
-        Text(labelText!),
+        Align(alignment: AlignmentGeometry.centerStart, child: Text(labelText!)),
         createTextField(),
       ],
     );
@@ -45,7 +47,7 @@ class CustomTextField extends StatelessWidget {
         width: 2,
       ),
     );
-    return TextField(
+    return TextFormField(
       decoration: InputDecoration(
         contentPadding: EdgeInsetsGeometry.all(14),
         suffixIcon: Padding(
@@ -63,8 +65,9 @@ class CustomTextField extends StatelessWidget {
         hintStyle: textHintStyle,
       ),
       style: textInputStyle,
+      validator: validator,
       onChanged: onChanged,
-      onSubmitted: onFieldSubmitted,
+      onFieldSubmitted: onFieldSubmitted,
       obscureText: obscureText ?? false,
       controller: controller,
       keyboardType: keyboardType,

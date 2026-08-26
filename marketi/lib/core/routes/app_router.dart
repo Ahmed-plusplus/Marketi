@@ -57,7 +57,10 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: RoutesName.signUp,
-      builder: (context, state) => const SignupView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => AuthCubit(),
+        child: const SignupView(),
+      ),
     ),
     GoRoute(
       path: RoutesName.changePassword,

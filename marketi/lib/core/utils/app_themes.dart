@@ -93,7 +93,7 @@ var appTheme = ThemeData(
     ),
   ),
   checkboxTheme: CheckboxThemeData(
-    fillColor: WidgetStatePropertyAll(AppColors.primary),
+    side: BorderSide(color: AppColors.primary),
   ),
 );
 
@@ -124,7 +124,7 @@ var textHintStyle = TextStyle(
 var textInputStyle = TextStyle(
     fontSize: 18,
     fontFamily: Assets.fonts.poppins,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w500,
     color: AppColors.darkBlue900,
     overflow: TextOverflow.ellipsis
 );

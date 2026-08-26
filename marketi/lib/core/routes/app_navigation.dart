@@ -12,3 +12,7 @@ void customReplacementNavigate(BuildContext context, String path) {
 void customNavigateAndRemoveAllPrevious(BuildContext context, String path){
   GoRouter.of(context).go(path);
 }
+
+void customBackNavigation(BuildContext context){
+  GoRouter.of(context).pop();
+}
