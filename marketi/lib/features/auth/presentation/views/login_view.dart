@@ -38,7 +38,20 @@ class _LoginViewState extends State<LoginView> {
             physics: BouncingScrollPhysics(),
             child: BlocConsumer<AuthCubit, AuthStates>(
               listener: (context, state) {
-
+                if(state is LoginSuccessfulStates){
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(state.message!),
+                    ),
+                  );
+                  customReplacementNavigate(context, RoutesName.home);
+                } else if(state is LoginFailedStates){
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(state.message),
+                    ),
+                  );
+                }
               },
               builder: (context, state) {
                 cubit = AuthCubit.get(context);
