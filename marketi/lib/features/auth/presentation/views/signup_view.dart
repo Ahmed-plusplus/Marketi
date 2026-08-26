@@ -53,7 +53,8 @@ class _SignupViewState extends State<SignupView> {
                         if(formKey.currentState!.validate()) {
                           _cubit.signup(params);
                         }
-                      }
+                      },
+                      isLoading: state is SignupLoadingStates,
                     ),
                     SizedBox(height: 12,),
                     Text(AppStrings.loginWith),

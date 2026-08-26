@@ -11,7 +11,7 @@ class ServerException implements Exception {
 void handleDioExceptions(DioException e) {
   switch (e.type) {
     case DioExceptionType.connectionTimeout:
-      throw ServerException(errModel: ErrorModel.fromJson(e.response!.data));
+      throw ServerException(errModel: ErrorModel.fromJson(e.response?.data ?? 'Connection Timeout'));
     case DioExceptionType.sendTimeout:
       throw ServerException(errModel: ErrorModel.fromJson(e.response!.data));
     case DioExceptionType.receiveTimeout:
@@ -21,7 +21,7 @@ void handleDioExceptions(DioException e) {
     case DioExceptionType.cancel:
       throw ServerException(errModel: ErrorModel.fromJson(e.response!.data));
     case DioExceptionType.connectionError:
-      throw ServerException(errModel: ErrorModel.fromJson(e.response!.data));
+      throw ServerException(errModel: ErrorModel.fromJson(e.response?.data ?? 'Connection Error'));
     case DioExceptionType.unknown:
       throw ServerException(errModel: ErrorModel.fromJson(e.response!.data));
     case DioExceptionType.transformTimeout:

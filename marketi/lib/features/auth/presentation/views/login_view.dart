@@ -92,6 +92,7 @@ class _LoginViewState extends State<LoginView> {
                     CustomElevatedButton(
                       text: AppStrings.login,
                       onPressed: () => cubit.login(emailController.text, passwordController.text),
+                      isLoading: state is LoginLoadingStates,
                     ),
                     SizedBox(height: 14,),
                     Text(AppStrings.loginWith),
