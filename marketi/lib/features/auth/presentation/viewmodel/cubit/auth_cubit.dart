@@ -56,4 +56,13 @@ class AuthCubit extends Cubit<AuthStates>{
             (failure) => emit(SignupFailedStates(failure.errMessage))
     );
   }
+
+  Future<void> sendSMS(String phone) async{
+    emit(SendSMSLoadingStates());
+    final response = await _repository.sendSMS(phone);
+    response.fold(
+            (message) => emit(SendSMSSuccessfulStates(message)),
+            (failure) => emit(SendSMSFailedStates(failure.errMessage))
+    );
+  }
 }

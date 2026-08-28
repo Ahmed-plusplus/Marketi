@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marketi/core/utils/app_themes.dart';
 
-import 'custom_indicator.dart';
-
 class CustomElevatedButton extends StatelessWidget {
   const CustomElevatedButton({
     super.key,
@@ -20,8 +18,8 @@ class CustomElevatedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: isLoading == true ? onPressed : null,
-      child: (isLoading ?? false) ? CustomIndicator()
+      onPressed: isLoading == true ? null : onPressed,
+      child: (isLoading ?? false) ? const CircularProgressIndicator(color: Colors.white,)
           : Text(text, style: style ?? textElevatedButtonStyle,),
     );
   }

@@ -3,6 +3,7 @@ import 'package:marketi/core/utils/app_strings.dart';
 import 'package:marketi/core/widgets/custom_text_field.dart';
 import 'package:marketi/features/auth/data/models/signup_params.dart';
 import 'package:marketi/features/auth/presentation/viewmodel/cubit/auth_cubit.dart';
+import 'package:marketi/features/auth/presentation/views/widgets/phone_text_field.dart';
 import 'package:marketi/generated/assets.dart';
 
 class SignupForm extends StatelessWidget {
@@ -21,7 +22,7 @@ class SignupForm extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController = TextEditingController();
-  SignupParams signupParams;
+  final SignupParams signupParams;
 
   @override
   Widget build(BuildContext context) {
@@ -44,21 +45,7 @@ class SignupForm extends StatelessWidget {
               hintText: AppStrings.username,
               prefixIcon: Assets.images.userIcon.svg(),
             ),
-            CustomTextFormField(
-              controller: phoneController,
-              labelText: AppStrings.phoneNumber,
-              hintText: AppStrings.phoneNoHint,
-              keyboardType: TextInputType.phone,
-              onChanged: (phone) => signupParams.phone = phone,
-              prefixIcon: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Assets.images.phoneIcon.svg(),
-                  SizedBox(width: 12,),
-                  Assets.images.arrowIcon.svg(),
-                ],
-              ),
-            ),
+            PhoneTextField(controller: phoneController, signupParams: signupParams,),
             CustomTextFormField(
               controller: emailController,
               labelText: AppStrings.email,

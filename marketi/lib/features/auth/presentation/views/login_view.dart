@@ -6,7 +6,6 @@ import 'package:marketi/core/utils/app_colors.dart';
 import 'package:marketi/core/utils/app_strings.dart';
 import 'package:marketi/core/utils/app_themes.dart';
 import 'package:marketi/core/widgets/custom_elevated_button.dart';
-import 'package:marketi/core/widgets/custom_outlined_button.dart';
 import 'package:marketi/core/widgets/custom_text_field.dart';
 import 'package:marketi/features/auth/presentation/viewmodel/cubit/auth_cubit.dart';
 import 'package:marketi/features/auth/presentation/viewmodel/cubit/auth_states.dart';
@@ -59,11 +58,10 @@ class _LoginViewState extends State<LoginView> {
                   children: [
                     Align(
                       alignment: AlignmentGeometry.topStart,
-                      child: CustomOutlinedButton(
-                        text: AppStrings.skip,
+                      child: OutlinedButton(
                         onPressed: () => goToHomeScreen(context),
-                        style: textOutlinedButtonStyle.copyWith(fontWeight: FontWeight.w600),
-                      ),
+                        child: Text(AppStrings.skip, style: textOutlinedButtonStyle.copyWith(fontWeight: FontWeight.w600),),
+                      )
                     ),
                     const SizedBox(height: 22,),
                     Assets.images.logoLogin.image(width: 272, height: 232),

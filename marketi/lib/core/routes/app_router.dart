@@ -64,27 +64,45 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: RoutesName.changePassword,
-      builder: (context, state) => const ChangePasswordView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => AuthCubit(),
+        child: const ChangePasswordView()
+      ),
     ),
     GoRoute(
       path: RoutesName.passwordUpdated,
-      builder: (context, state) => const UpdatePasswordSuccessfulView(),
+      builder: (context, state) => BlocProvider(
+          create: (context) => AuthCubit(),
+          child: const UpdatePasswordSuccessfulView()
+      ),
     ),
     GoRoute(
       path: RoutesName.forgetPasswordWithEmail,
-      builder: (context, state) => const ForgetPasswordWithEmailView(),
+      builder: (context, state) => BlocProvider(
+          create: (context) => AuthCubit(),
+          child: const ForgetPasswordWithEmailView()
+      ),
     ),
     GoRoute(
       path: RoutesName.forgetPasswordWithPhone,
-      builder: (context, state) => const ForgetPasswordWithPhoneView(),
+      builder: (context, state) => BlocProvider(
+          create: (context) => AuthCubit(),
+          child: const ForgetPasswordWithPhoneView()
+      ),
     ),
     GoRoute(
       path: RoutesName.verificationCodeWithEmail,
-      builder: (context, state) => const VerificationCodeWithEmailView(),
+      builder: (context, state) => BlocProvider(
+          create: (context) => AuthCubit(),
+          child: const VerificationCodeWithEmailView()
+      ),
     ),
     GoRoute(
       path: RoutesName.verificationCodeWithPhone,
-      builder: (context, state) => const VerificationCodeWithPhoneView(),
+      builder: (context, state) => BlocProvider(
+          create: (context) => AuthCubit(),
+          child: const VerificationCodeWithPhoneView()
+      ),
     ),
     GoRoute(
       path: RoutesName.home,

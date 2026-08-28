@@ -129,3 +129,10 @@ var textInputStyle = TextStyle(
     overflow: TextOverflow.ellipsis
 );
 
+var textHeaderStyle = TextStyle(
+    fontSize: 16,
+    fontFamily: Assets.fonts.poppins,
+    fontWeight: FontWeight.w500,
+    color: AppColors.navy,
+    overflow: TextOverflow.ellipsis
+);
