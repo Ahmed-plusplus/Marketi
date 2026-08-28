@@ -1,7 +1,9 @@
 import 'package:marketi/core/network/api/end_ponits.dart';
 
+import 'submodels/product_model.dart';
+
 class ProductsModel {
-  List<ProductsModel>? list;
+  List<ProductModel>? list;
   int? total;
   int? skip;
   int? limit;
@@ -10,9 +12,9 @@ class ProductsModel {
 
   ProductsModel.fromJson(Map<String, dynamic> json) {
     if (json[ApiKey.list] != null) {
-      list = <ProductsModel>[];
+      list = <ProductModel>[];
       json[ApiKey.list].forEach((v) {
-        list!.add(ProductsModel.fromJson(v));
+        list!.add(ProductModel.fromJson(v));
       });
     }
     total = json[ApiKey.total];

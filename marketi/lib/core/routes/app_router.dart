@@ -10,6 +10,7 @@ import 'package:marketi/features/auth/presentation/views/signup_view.dart';
 import 'package:marketi/features/auth/presentation/views/update_password_successful_view.dart';
 import 'package:marketi/features/auth/presentation/views/verification_code_with_email_view.dart';
 import 'package:marketi/features/auth/presentation/views/verification_code_with_phone_view.dart';
+import 'package:marketi/features/home/presentation/viewmodel/home_cubit.dart';
 import 'package:marketi/features/home/presentation/views/all_brands_view.dart';
 import 'package:marketi/features/home/presentation/views/all_categories_view.dart';
 import 'package:marketi/features/home/presentation/views/best_for_you_view.dart';
@@ -106,7 +107,10 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: RoutesName.home,
-      builder: (context, state) => const HomeView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => HomeCubit()..fetchHomeData(),
+        child: const HomeView()
+      ),
     ),
     GoRoute(
       path: RoutesName.favorite,

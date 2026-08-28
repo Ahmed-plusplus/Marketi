@@ -1,4 +1,4 @@
-class EndPoint {
+abstract class EndPoint {
   static String baseUrl = "https://supermarket-dan1.onrender.com/api/v1/";
   static String signIn = "auth/signIn";
   static String signUp = "auth/signUp";
@@ -30,7 +30,7 @@ class EndPoint {
   static String editUserData = "portfoilo/editUserData";
 }
 
-class ApiKey {
+abstract class ApiKey {
   static String status = "status";
   static String message = "message";
   static String email = "email";
@@ -95,6 +95,9 @@ class ApiKey {
   static String emoji = "emoji";
   static String slug = "slug";
   static String url = "url";
+  static String sortBy = "sortBy";
+  static String order = "order";
+  static String select = "order";
 
   static String file = "file";
   static String locationName = "locationName";
