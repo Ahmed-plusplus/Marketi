@@ -7,6 +7,7 @@ import 'package:marketi/core/utils/app_strings.dart';
 import 'package:marketi/core/utils/app_themes.dart';
 import 'package:marketi/core/widgets/custom_elevated_button.dart';
 import 'package:marketi/core/widgets/custom_text_field.dart';
+import 'package:marketi/features/auth/data/models/signin_request.dart';
 import 'package:marketi/features/auth/presentation/viewmodel/cubit/auth_cubit.dart';
 import 'package:marketi/features/auth/presentation/viewmodel/cubit/auth_states.dart';
 import 'package:marketi/features/auth/presentation/views/widgets/account_button.dart';
@@ -102,7 +103,7 @@ class _LoginViewState extends State<LoginView> {
                     SizedBox(height: 20,),
                     CustomElevatedButton(
                       text: AppStrings.login,
-                      onPressed: () => cubit.login(emailController.text, passwordController.text),
+                      onPressed: () => cubit.login(SignInRequest(email: emailController.text, password: passwordController.text)),
                       isLoading: state is LoginLoadingStates,
                     ),
                     SizedBox(height: 14,),

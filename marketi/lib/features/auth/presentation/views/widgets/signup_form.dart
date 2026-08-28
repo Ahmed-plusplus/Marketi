@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:marketi/core/utils/app_strings.dart';
 import 'package:marketi/core/widgets/custom_text_field.dart';
-import 'package:marketi/features/auth/data/models/signup_params.dart';
+import 'package:marketi/features/auth/data/models/signup_request.dart';
 import 'package:marketi/features/auth/presentation/viewmodel/cubit/auth_cubit.dart';
 import 'package:marketi/features/auth/presentation/views/widgets/phone_text_field.dart';
 import 'package:marketi/generated/assets.dart';
@@ -22,7 +22,7 @@ class SignupForm extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController = TextEditingController();
-  final SignupParams signupParams;
+  final SignupRequest signupParams;
 
   @override
   Widget build(BuildContext context) {

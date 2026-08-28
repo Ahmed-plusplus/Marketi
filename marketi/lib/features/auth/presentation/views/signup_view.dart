@@ -4,7 +4,7 @@ import 'package:marketi/core/routes/app_navigation.dart';
 import 'package:marketi/core/utils/app_strings.dart';
 import 'package:marketi/core/widgets/custom_back_button.dart';
 import 'package:marketi/core/widgets/custom_elevated_button.dart';
-import 'package:marketi/features/auth/data/models/signup_params.dart';
+import 'package:marketi/features/auth/data/models/signup_request.dart';
 import 'package:marketi/features/auth/presentation/viewmodel/cubit/auth_cubit.dart';
 import 'package:marketi/features/auth/presentation/viewmodel/cubit/auth_states.dart';
 import 'package:marketi/generated/assets.dart';
@@ -23,7 +23,7 @@ class _SignupViewState extends State<SignupView> {
 
   late AuthCubit _cubit;
   GlobalKey<FormState> formKey = GlobalKey();
-  SignupParams params = SignupParams();
+  SignupRequest params = SignupRequest();
 
   @override
   Widget build(BuildContext context) {

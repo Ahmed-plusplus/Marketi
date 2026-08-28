@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marketi/core/service/service_locator.dart';
-import 'package:marketi/features/auth/data/models/signup_params.dart';
+import 'package:marketi/features/auth/data/models/signin_request.dart';
+import 'package:marketi/features/auth/data/models/signup_request.dart';
 import 'package:marketi/features/auth/data/repositories/auth_repository.dart';
 import 'package:marketi/features/auth/presentation/viewmodel/cubit/auth_states.dart';
 
@@ -39,16 +40,16 @@ class AuthCubit extends Cubit<AuthStates>{
     emit(ChangeRememberMeCheck());
   }
 
-  Future<void> login(String email, String password) async{
+  Future<void> login(SignInRequest request) async{
     emit(LoginLoadingStates());
-    final response = await _repository.login(email: email, password: password);
+    final response = await _repository.login(request);
     response.fold(
       (signInModel) => emit(LoginSuccessfulStates(signInModel.message)),
         (failure) => emit(LoginFailedStates(failure.errMessage))
     );
   }
 
-  Future<void> signup(SignupParams params) async {
+  Future<void> signup(SignupRequest params) async {
     emit(SignupLoadingStates());
     final response = await _repository.signup(params);
     response.fold(
