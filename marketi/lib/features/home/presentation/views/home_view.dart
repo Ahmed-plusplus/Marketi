@@ -7,10 +7,10 @@ import 'package:marketi/core/routes/app_navigation.dart';
 import 'package:marketi/core/routes/routes_name.dart';
 import 'package:marketi/core/utils/app_colors.dart';
 import 'package:marketi/core/utils/app_strings.dart';
-import 'package:marketi/core/widgets/custom_text_field.dart';
 import 'package:marketi/features/home/presentation/viewmodel/home_cubit.dart';
 import 'package:marketi/features/home/presentation/viewmodel/home_states.dart';
 import 'package:marketi/features/home/presentation/views/widget/category_item_widget.dart';
+import 'package:marketi/features/home/presentation/views/widget/home_search_widget.dart';
 import 'package:marketi/features/home/presentation/views/widget/product_item_widget.dart';
 import 'package:marketi/generated/assets.dart';
 
@@ -42,18 +42,7 @@ class _HomeViewState extends State<HomeView> {
                 ],
               ),
               SizedBox(height: 14,),
-              OutlinedButton(
-                onPressed: () => customNavigate(context, RoutesName.search),
-                child: Row(
-                  children: [
-                    Assets.images.searchIcon.svg(),
-                    Expanded(child: Text(AppStrings.searchHint)),
-                    GestureDetector(
-                      child: Assets.images.filterIcon.svg(),
-                    ),
-                  ],
-                ),
-              ),
+              HomeSearchWidget(),
               SizedBox(height: 14,),
               Expanded(
                 child: SingleChildScrollView(

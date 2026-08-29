@@ -91,6 +91,7 @@ abstract class AppStrings {
   static const password = 'Password';
   static const confirmPassword = 'Confirm Password';
   static const allProducts = 'All Products';
+  static const allCategories = 'All Categories';
   static const address = 'Address';
   static const home = 'Home';
   static const deliveryTime = 'Delivery time';

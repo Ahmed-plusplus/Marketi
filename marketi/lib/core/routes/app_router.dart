@@ -138,7 +138,10 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: RoutesName.allCategories,
-      builder: (context, state) => const AllCategoriesView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => HomeCubit()..fetchCategories(),
+        child: const AllCategoriesView()
+      ),
     ),
     GoRoute(
       path: RoutesName.allBrands,

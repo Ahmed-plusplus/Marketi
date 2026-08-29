@@ -11,12 +11,12 @@ class CategoryItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 105,
+      width: double.infinity,
       child: Column(
         children: [
           Card(
             child: Container(
-              width: 105,
+              width: double.infinity,
               height: 96,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
