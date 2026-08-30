@@ -5,10 +5,10 @@ import 'package:marketi/features/auth/data/models/signup_request.dart';
 import 'package:marketi/generated/assets.dart';
 
 class PhoneTextField extends StatelessWidget {
-  const PhoneTextField({super.key, required this.controller, this.signupParams});
+  const PhoneTextField({super.key, required this.controller, this.signupRequest});
 
   final TextEditingController controller;
-  final SignupRequest? signupParams;
+  final SignupRequest? signupRequest;
   @override
   Widget build(BuildContext context) {
     return CustomTextFormField(
@@ -16,7 +16,7 @@ class PhoneTextField extends StatelessWidget {
       labelText: AppStrings.phoneNumber,
       hintText: AppStrings.phoneNoHint,
       keyboardType: TextInputType.phone,
-      onChanged: (phone) => signupParams?.phone = phone,
+      onChanged: (phone) => signupRequest?.phone = phone,
       prefixIcon: Row(
         mainAxisSize: MainAxisSize.min,
         children: [

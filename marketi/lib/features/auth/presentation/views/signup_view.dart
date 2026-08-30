@@ -61,7 +61,7 @@ class _SignupViewState extends State<SignupView> {
                         Assets.images.logoSignup.image(width: 190, height: 160, ),
                       ],
                     ),
-                    SignupForm(cubit: _cubit, formKey: formKey, signupParams: params,),
+                    SignupForm(cubit: _cubit, formKey: formKey, signupRequest: params,),
                     SizedBox(height: 14,),
                     CustomElevatedButton(
                       text: AppStrings.signup,

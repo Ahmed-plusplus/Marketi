@@ -37,3 +37,13 @@ class SendSMSFailedStates extends AuthStates {
   String message;
   SendSMSFailedStates(this.message);
 }
+
+class SendEmailLoadingStates extends AuthStates {}
+class SendEmailSuccessfulStates extends AuthStates {
+  String? message;
+  SendEmailSuccessfulStates(this.message);
+}
+class SendEmailFailedStates extends AuthStates {
+  String message;
+  SendEmailFailedStates(this.message);
+}

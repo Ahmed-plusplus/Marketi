@@ -48,4 +48,8 @@ class AuthRepository {
   Future<Either<String, Failure>> sendSMS(String phone) async{
     return Left('success');
   }
+
+  Future<Either<String, Failure>> sendEmail(String email) async {
+    return Left('success');
+  }
 }

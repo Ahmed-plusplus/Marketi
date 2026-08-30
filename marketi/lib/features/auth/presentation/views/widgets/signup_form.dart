@@ -3,6 +3,7 @@ import 'package:marketi/core/utils/app_strings.dart';
 import 'package:marketi/core/widgets/custom_text_field.dart';
 import 'package:marketi/features/auth/data/models/signup_request.dart';
 import 'package:marketi/features/auth/presentation/viewmodel/cubit/auth_cubit.dart';
+import 'package:marketi/features/auth/presentation/views/widgets/email_text_field.dart';
 import 'package:marketi/features/auth/presentation/views/widgets/phone_text_field.dart';
 import 'package:marketi/generated/assets.dart';
 
@@ -11,7 +12,7 @@ class SignupForm extends StatelessWidget {
     super.key,
     required this.cubit,
     required this.formKey,
-    required this.signupParams,
+    required this.signupRequest,
   });
 
   final AuthCubit cubit;
@@ -22,7 +23,7 @@ class SignupForm extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController = TextEditingController();
-  final SignupRequest signupParams;
+  final SignupRequest signupRequest;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +38,7 @@ class SignupForm extends StatelessWidget {
               labelText: AppStrings.yourName,
               hintText: AppStrings.fullNameHint,
               prefixIcon: Assets.images.nameIcon.svg(),
-              onChanged: (name) => signupParams.name = name,
+              onChanged: (name) => signupRequest.name = name,
             ),
             CustomTextFormField(
               controller: usernameController,
@@ -45,15 +46,8 @@ class SignupForm extends StatelessWidget {
               hintText: AppStrings.username,
               prefixIcon: Assets.images.userIcon.svg(),
             ),
-            PhoneTextField(controller: phoneController, signupParams: signupParams,),
-            CustomTextFormField(
-              controller: emailController,
-              labelText: AppStrings.email,
-              hintText: AppStrings.emailHint,
-              keyboardType: TextInputType.emailAddress,
-              prefixIcon: Assets.images.emailIcon.svg(),
-              onChanged: (email) => signupParams.email = email,
-            ),
+            PhoneTextField(controller: phoneController, signupRequest: signupRequest,),
+            EmailTextField(controller: emailController, signupRequest: signupRequest,),
             CustomTextFormField(
               controller: passwordController,
               labelText: AppStrings.password,
@@ -64,7 +58,7 @@ class SignupForm extends StatelessWidget {
                 onTap: () => cubit.changeSignupPasswordVisibility(),
               ),
               obscureText: cubit.isSignupPasswordVisible,
-              onChanged: (password) => signupParams.password = password,
+              onChanged: (password) => signupRequest.password = password,
             ),
             CustomTextFormField(
               controller: confirmPasswordController,
@@ -77,7 +71,7 @@ class SignupForm extends StatelessWidget {
               ),
               obscureText: cubit.isSignupConfirmPasswordVisible,
               validator: (password){
-                if(password != signupParams.password) {
+                if(password != signupRequest.password) {
                   return 'mismatch password';
                 }
                 return null;

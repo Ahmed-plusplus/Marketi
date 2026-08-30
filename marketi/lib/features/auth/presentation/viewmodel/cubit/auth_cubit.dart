@@ -1,3 +1,4 @@
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marketi/core/service/service_locator.dart';
 import 'package:marketi/features/auth/data/models/signin_request.dart';
@@ -64,6 +65,15 @@ class AuthCubit extends Cubit<AuthStates>{
     response.fold(
             (message) => emit(SendSMSSuccessfulStates(message)),
             (failure) => emit(SendSMSFailedStates(failure.errMessage))
+    );
+  }
+
+  Future<void> sendEmail(String email) async{
+    emit(SendEmailLoadingStates());
+    final response = await _repository.sendEmail(email);
+    response.fold(
+            (message) => emit(SendEmailSuccessfulStates(message)),
+            (failure) => emit(SendEmailFailedStates(failure.errMessage))
     );
   }
 }
