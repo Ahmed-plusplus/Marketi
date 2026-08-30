@@ -94,14 +94,14 @@ final GoRouter router = GoRouter(
       path: RoutesName.verificationCodeWithEmail,
       builder: (context, state) => BlocProvider(
           create: (context) => AuthCubit(),
-          child: const VerificationCodeWithEmailView()
+          child: VerificationCodeWithEmailView(email: state.extra as String)
       ),
     ),
     GoRoute(
       path: RoutesName.verificationCodeWithPhone,
       builder: (context, state) => BlocProvider(
           create: (context) => AuthCubit(),
-          child: const VerificationCodeWithPhoneView()
+          child: VerificationCodeWithPhoneView(phone: state.extra as String)
       ),
     ),
     GoRoute(

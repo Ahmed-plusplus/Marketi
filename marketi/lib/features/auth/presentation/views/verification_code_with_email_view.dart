@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class VerificationCodeWithEmailView extends StatefulWidget {
-  const VerificationCodeWithEmailView({super.key});
+  const VerificationCodeWithEmailView({super.key, required this.email});
+
+  final String email;
 
   @override
   State<VerificationCodeWithEmailView> createState() => _VerificationCodeWithEmailViewState();

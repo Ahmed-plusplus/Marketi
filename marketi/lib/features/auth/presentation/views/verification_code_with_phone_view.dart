@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class VerificationCodeWithPhoneView extends StatefulWidget {
-  const VerificationCodeWithPhoneView({super.key});
+  const VerificationCodeWithPhoneView({super.key, required this.phone});
+
+  final String phone;
 
   @override
   State<VerificationCodeWithPhoneView> createState() => _VerificationCodeWithPhoneViewState();

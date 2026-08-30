@@ -47,7 +47,7 @@ class _ForgetPasswordWithEmailViewState extends State<ForgetPasswordWithEmailVie
                       BlocConsumer<AuthCubit, AuthStates>(
                           listener: (context, state){
                             if(state is SendEmailSuccessfulStates){
-                              customNavigate(context, RoutesName.verificationCodeWithEmail);
+                              customNavigate(context, RoutesName.verificationCodeWithEmail, extra: state.email);
                             } else if(state is SendEmailFailedStates){
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
