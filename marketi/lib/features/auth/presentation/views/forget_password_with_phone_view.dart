@@ -47,7 +47,7 @@ class _ForgetPasswordWithPhoneViewState extends State<ForgetPasswordWithPhoneVie
                       BlocConsumer<AuthCubit, AuthStates>(
                         listener: (context, state){
                           if(state is SendSMSSuccessfulStates){
-                            customNavigate(context, RoutesName.verificationCodeWithPhone);
+                            customNavigate(context, RoutesName.verificationCodeWithPhone, extra: state.phone);
                           } else if(state is SendSMSFailedStates){
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(

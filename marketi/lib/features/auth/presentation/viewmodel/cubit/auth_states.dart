@@ -30,10 +30,22 @@ class SignupFailedStates extends AuthStates {
 
 class SendSMSLoadingStates extends AuthStates {}
 class SendSMSSuccessfulStates extends AuthStates {
+  String phone;
   String? message;
-  SendSMSSuccessfulStates(this.message);
+  SendSMSSuccessfulStates(this.phone, this.message);
 }
 class SendSMSFailedStates extends AuthStates {
   String message;
   SendSMSFailedStates(this.message);
+}
+
+class SendEmailLoadingStates extends AuthStates {}
+class SendEmailSuccessfulStates extends AuthStates {
+  String email;
+  String? message;
+  SendEmailSuccessfulStates(this.email, this.message);
+}
+class SendEmailFailedStates extends AuthStates {
+  String message;
+  SendEmailFailedStates(this.message);
 }
