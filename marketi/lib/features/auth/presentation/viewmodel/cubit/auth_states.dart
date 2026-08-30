@@ -49,3 +49,13 @@ class SendEmailFailedStates extends AuthStates {
   String message;
   SendEmailFailedStates(this.message);
 }
+
+class VerifyCodeLoadingStates extends AuthStates {}
+class VerifyCodeSuccessfulStates extends AuthStates {
+  String? message;
+  VerifyCodeSuccessfulStates(this.message);
+}
+class VerifyCodeFailedStates extends AuthStates {
+  String message;
+  VerifyCodeFailedStates(this.message);
+}

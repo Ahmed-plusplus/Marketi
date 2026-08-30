@@ -75,4 +75,12 @@ class AuthCubit extends Cubit<AuthStates>{
             (failure) => emit(SendEmailFailedStates(failure.errMessage))
     );
   }
+
+  Future<void> verifyCode(String phone, String code) async {
+
+  }
+
+  Future<void> resendCode(String phone) async {
+
+  }
 }
