@@ -44,7 +44,7 @@ class _VerificationCodeWithPhoneViewState extends State<VerificationCodeWithPhon
                       Assets.images.illustrationVerificationCodeWithPhone.image(width: 300, height: 256),
                       Padding(
                         padding: const EdgeInsets.all(22.0),
-                        child: Text(AppStrings.forgetPasswordBody1, maxLines: 2, textAlign: TextAlign.center,),
+                        child: Text('${AppStrings.forgetPasswordBody3}${widget.phone}', maxLines: 2, textAlign: TextAlign.center,),
                       ),
                       VerificationCode(
                         keyboardType: TextInputType.number,
