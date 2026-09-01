@@ -101,6 +101,9 @@ class $AssetsImagesGen {
   final AssetGenImage illustrationOnboarding3 = const AssetGenImage(
     'assets/images/illustration_onboarding3.png',
   );
+  final AssetGenImage illustrationSearchNotFound = const AssetGenImage(
+    'assets/images/illustration_search_not_found.png',
+  );
   final AssetGenImage illustrationSuccessOrder = const AssetGenImage(
     'assets/images/illustration_success_order.png',
   );

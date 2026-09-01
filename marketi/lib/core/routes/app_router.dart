@@ -122,7 +122,7 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: RoutesName.search,
-      builder: (context, state) => const SearchView(),
+      builder: (context, state) => SearchView(cubit: state.extra as HomeCubit,),
     ),
     GoRoute(
       path: RoutesName.popularProduct,
@@ -138,10 +138,7 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: RoutesName.allCategories,
-      builder: (context, state) => BlocProvider(
-        create: (context) => HomeCubit()..fetchCategories(),
-        child: const AllCategoriesView()
-      ),
+      builder: (context, state) => AllCategoriesView(cubit: state.extra as HomeCubit),
     ),
     GoRoute(
       path: RoutesName.allBrands,

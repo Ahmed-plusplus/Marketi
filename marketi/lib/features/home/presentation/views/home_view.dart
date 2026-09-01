@@ -42,7 +42,12 @@ class _HomeViewState extends State<HomeView> {
                 ],
               ),
               SizedBox(height: 14,),
-              HomeSearchWidget(),
+              BlocBuilder<HomeCubit, HomeStates>(
+                builder: (context, state) {
+                  _cubit = HomeCubit.get(context);
+                  return HomeSearchWidget(cubit: _cubit,);
+                }
+              ),
               SizedBox(height: 14,),
               Expanded(
                 child: SingleChildScrollView(
@@ -81,7 +86,7 @@ class _HomeViewState extends State<HomeView> {
                         children: [
                           Expanded(child: Text(AppStrings.categoryHeader)),
                           GestureDetector(
-                            onTap: () => customNavigate(context, RoutesName.allCategories),
+                            onTap: () => customNavigate(context, RoutesName.allCategories, extra: _cubit),
                             child: Text(AppStrings.viewAll, style: TextStyle(color: AppColors.primary),),
                           )
                         ],

@@ -9,15 +9,15 @@ import 'package:marketi/features/home/presentation/views/widget/home_search_widg
 import 'widget/header_home_widget.dart';
 
 class AllCategoriesView extends StatefulWidget {
-  const AllCategoriesView({super.key});
+  const AllCategoriesView({super.key, required this.cubit});
+
+  final HomeCubit cubit;
 
   @override
   State<AllCategoriesView> createState() => _AllCategoriesViewState();
 }
 
 class _AllCategoriesViewState extends State<AllCategoriesView> {
-
-  late HomeCubit _cubit;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class _AllCategoriesViewState extends State<AllCategoriesView> {
             children: [
               HeaderHomeWidget(header: AppStrings.categoriesHeader,),
               SizedBox(height: 14,),
-              HomeSearchWidget(),
+              HomeSearchWidget(cubit: widget.cubit,),
               SizedBox(height: 14,),
               Align(
                 alignment: AlignmentGeometry.centerStart,
@@ -37,20 +37,15 @@ class _AllCategoriesViewState extends State<AllCategoriesView> {
               ),
               SizedBox(height: 14,),
               Expanded(
-                child: BlocBuilder<HomeCubit, HomeStates>(
-                  builder: (context, state) {
-                    _cubit = HomeCubit.get(context);
-                    return GridView.count(
-                      crossAxisCount: 2,
-                      physics: BouncingScrollPhysics(),
-                      mainAxisSpacing: 0,
-                      crossAxisSpacing: 0,
-                      padding: EdgeInsets.all(0),
-                      children: _cubit.categories
-                          .map((category) => CategoryItemWidget(category: category))
-                          .toList(),
-                    );
-                  }
+                child: GridView.count(
+                  crossAxisCount: 2,
+                  physics: BouncingScrollPhysics(),
+                  mainAxisSpacing: 0,
+                  crossAxisSpacing: 0,
+                  padding: EdgeInsets.all(0),
+                  children: widget.cubit.categories
+                      .map((category) => CategoryItemWidget(category: category))
+                      .toList(),
                 ),
               ),
             ],

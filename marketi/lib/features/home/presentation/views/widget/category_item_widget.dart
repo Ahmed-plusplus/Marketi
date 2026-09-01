@@ -12,7 +12,9 @@ class CategoryItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
+      height: 120,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Card(
             child: Container(
