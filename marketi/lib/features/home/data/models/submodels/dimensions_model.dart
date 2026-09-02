@@ -8,9 +8,9 @@ class DimensionsModel {
   DimensionsModel({this.width, this.height, this.depth});
 
   DimensionsModel.fromJson(Map<String, dynamic> json) {
-    width = json[ApiKey.width];
-    height = json[ApiKey.height];
-    depth = json[ApiKey.depth];
+    width = (json[ApiKey.width] as num?)?.toDouble();
+    height = (json[ApiKey.height] as num?)?.toDouble();
+    depth = (json[ApiKey.depth] as num?)?.toDouble();
   }
 
   Map<String, dynamic> toJson() => {

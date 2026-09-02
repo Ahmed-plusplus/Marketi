@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marketi/core/routes/routes_name.dart';
 import 'package:marketi/core/utils/app_strings.dart';
 import 'package:marketi/features/home/presentation/viewmodel/home_cubit/home_cubit.dart';
 import 'package:marketi/features/home/presentation/views/widget/category_item_widget.dart';
@@ -28,7 +29,7 @@ class _AllCategoriesViewState extends State<AllCategoriesView> {
             children: [
               HeaderHomeWidget(header: AppStrings.categoriesHeader,),
               SizedBox(height: 14,),
-              HomeSearchWidget(cubit: widget.cubit,),
+              HomeSearchWidget(searchRoute: RoutesName.categories, cubit: widget.cubit,),
               SizedBox(height: 14,),
               Align(
                 alignment: AlignmentGeometry.centerStart,

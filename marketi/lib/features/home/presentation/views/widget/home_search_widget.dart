@@ -6,13 +6,15 @@ import 'package:marketi/features/home/presentation/viewmodel/home_cubit/home_cub
 import 'package:marketi/generated/assets.dart';
 
 class HomeSearchWidget extends StatelessWidget {
-  const HomeSearchWidget({super.key, required this.cubit});
+  const HomeSearchWidget({super.key, required this.searchRoute, this.cubit});
 
-  final HomeCubit cubit;
+  final String searchRoute;
+  final HomeCubit? cubit;
+
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
-      onPressed: () => customNavigate(context, RoutesName.search, extra: cubit),
+      onPressed: () => customNavigate(context, searchRoute, extra: cubit),
       style: ButtonStyle(overlayColor: WidgetStatePropertyAll(Colors.transparent)),
       child: Row(
         children: [

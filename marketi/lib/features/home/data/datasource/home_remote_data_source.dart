@@ -5,6 +5,7 @@ import 'package:marketi/core/network/errors/exceptions.dart';
 import 'package:marketi/core/network/errors/failure.dart';
 import 'package:marketi/features/home/data/models/brandsModel.dart';
 import 'package:marketi/features/home/data/models/categories_model.dart';
+import 'package:marketi/features/home/data/models/product_filter_request.dart';
 import 'package:marketi/features/home/data/models/product_params.dart';
 import 'package:marketi/features/home/data/models/products_model.dart';
 import 'package:marketi/features/home/data/models/submodels/product_model.dart';
@@ -45,6 +46,15 @@ class HomeRemoteDataSource {
     try{
       var response = await api.get('${EndPoint.products}/$productId');
       return Left(ProductModel.fromJson(response));
+    } on ServerException catch(e){
+      return Right(Failure(errMessage: e.errModel.errorMessage));
+    }
+  }
+
+  Future<Either<ProductsModel, Failure>> getProductsByName({required ProductFilterRequest request}) async{
+    try{
+      var response = await api.post(EndPoint.productsFilter, data: request.toJson());
+      return Left(ProductsModel.fromJson(response));
     } on ServerException catch(e){
       return Right(Failure(errMessage: e.errModel.errorMessage));
     }

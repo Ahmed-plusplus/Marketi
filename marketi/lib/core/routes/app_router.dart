@@ -12,6 +12,7 @@ import 'package:marketi/features/auth/presentation/views/verification_code_with_
 import 'package:marketi/features/auth/presentation/views/verification_code_with_phone_view.dart';
 import 'package:marketi/features/home/presentation/viewmodel/home_cubit/home_cubit.dart';
 import 'package:marketi/features/home/presentation/viewmodel/product_details_cubit/product_details_cubit.dart';
+import 'package:marketi/features/home/presentation/viewmodel/search_cubit/search_cubit.dart';
 import 'package:marketi/features/home/presentation/views/all_brands_view.dart';
 import 'package:marketi/features/home/presentation/views/all_categories_view.dart';
 import 'package:marketi/features/home/presentation/views/best_for_you_view.dart';
@@ -123,7 +124,10 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: RoutesName.search,
-      builder: (context, state) => SearchView(cubit: state.extra as HomeCubit,),
+      builder: (context, state) => BlocProvider(
+        create: (context) => SearchCubit(),
+        child: const SearchView(),
+      ),
     ),
     GoRoute(
       path: RoutesName.popularProduct,
@@ -131,7 +135,7 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: RoutesName.categories,
-      builder: (context, state) => const CategoriesView(),
+      builder: (context, state) => CategoriesView(cubit: state.extra as HomeCubit,),
     ),
     GoRoute(
       path: RoutesName.brands,

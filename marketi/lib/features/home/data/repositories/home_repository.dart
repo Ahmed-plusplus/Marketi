@@ -3,6 +3,7 @@ import 'package:marketi/core/network/errors/failure.dart';
 import 'package:marketi/features/home/data/datasource/home_remote_data_source.dart';
 import 'package:marketi/features/home/data/models/brandsModel.dart';
 import 'package:marketi/features/home/data/models/categories_model.dart';
+import 'package:marketi/features/home/data/models/product_filter_request.dart';
 import 'package:marketi/features/home/data/models/product_params.dart';
 import 'package:marketi/features/home/data/models/products_model.dart';
 import 'package:marketi/features/home/data/models/submodels/product_model.dart';
@@ -26,5 +27,9 @@ class HomeRepository {
 
   Future<Either<ProductModel, Failure>> getProductDetails({required int productId}) async {
     return remoteDataSource.getProductDetails(productId);
+  }
+
+  Future<Either<ProductsModel, Failure>> getProductsByName({required String name, required int page}) async{
+    return remoteDataSource.getProductsByName(request: ProductFilterRequest(search: name, skip: (page - 1) * 5, limit: 5));
   }
 }

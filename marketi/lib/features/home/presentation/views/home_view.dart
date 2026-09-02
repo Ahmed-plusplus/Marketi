@@ -45,7 +45,7 @@ class _HomeViewState extends State<HomeView> {
                     ],
                   ),
                   SizedBox(height: 14,),
-                  HomeSearchWidget(cubit: _cubit,),
+                  HomeSearchWidget(searchRoute:RoutesName.search),
                   SizedBox(height: 14,),
                   Expanded(
                     child: SingleChildScrollView(

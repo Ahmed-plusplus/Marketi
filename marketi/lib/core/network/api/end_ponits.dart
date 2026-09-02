@@ -9,6 +9,7 @@ abstract class EndPoint {
   static String facebookAuth = "auth/oAuth/facebook";
   static String signOut = "auth/oAuth/signOut";
   static String products = "home/products";
+  static String productsFilter = "home/productsFilter";
   static String brands = "home/brands";
   static String categories = "home/categories";
   static String banners = "home/banners";
@@ -28,11 +29,13 @@ abstract class EndPoint {
   static String userData = "portfoilo/userData";
   static String addImage = "portfoilo/addImage";
   static String editUserData = "portfoilo/editUserData";
+
 }
 
 abstract class ApiKey {
   static String status = "status";
   static String message = "message";
+  static String error = "error";
   static String email = "email";
   static String password = "password";
   static String confirmPassword = "confirmPassword";

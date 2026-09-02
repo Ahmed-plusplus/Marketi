@@ -44,6 +44,7 @@ abstract class AppStrings {
   static const apply = 'Apply';
   static const placeOrder = 'Place Order';
   static const addToCart = 'Add to Cart';
+  static const loadMoreProducts = 'Load More Products';
 
   ///Text Links
   static const forgetPassword = 'Forgot Password?';

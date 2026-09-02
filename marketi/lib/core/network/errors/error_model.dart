@@ -9,7 +9,7 @@ class ErrorModel {
   factory ErrorModel.fromJson(Map<String, dynamic> jsonData) {
     return ErrorModel(
       // status: jsonData[ApiKey.status],
-      errorMessage: jsonData[ApiKey.message],
+      errorMessage: jsonData[ApiKey.message] ?? jsonData[ApiKey.error] ?? 'Unknown error',
     );
   }
 }
