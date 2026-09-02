@@ -10,7 +10,8 @@ import 'package:marketi/features/auth/presentation/views/signup_view.dart';
 import 'package:marketi/features/auth/presentation/views/update_password_successful_view.dart';
 import 'package:marketi/features/auth/presentation/views/verification_code_with_email_view.dart';
 import 'package:marketi/features/auth/presentation/views/verification_code_with_phone_view.dart';
-import 'package:marketi/features/home/presentation/viewmodel/home_cubit.dart';
+import 'package:marketi/features/home/presentation/viewmodel/home_cubit/home_cubit.dart';
+import 'package:marketi/features/home/presentation/viewmodel/product_details_cubit/product_details_cubit.dart';
 import 'package:marketi/features/home/presentation/views/all_brands_view.dart';
 import 'package:marketi/features/home/presentation/views/all_categories_view.dart';
 import 'package:marketi/features/home/presentation/views/best_for_you_view.dart';
@@ -170,7 +171,10 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: RoutesName.productDetails,
-      builder: (context, state) => const ProductDetailsView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => ProductDetailsCubit()..fetchProductDetails(productId: state.extra as int),
+        child: ProductDetailsView(),
+      ),
     ),
 // static const myOrder = '/myOrder';
     GoRoute(

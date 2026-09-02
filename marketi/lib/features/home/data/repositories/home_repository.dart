@@ -5,6 +5,7 @@ import 'package:marketi/features/home/data/models/brandsModel.dart';
 import 'package:marketi/features/home/data/models/categories_model.dart';
 import 'package:marketi/features/home/data/models/product_params.dart';
 import 'package:marketi/features/home/data/models/products_model.dart';
+import 'package:marketi/features/home/data/models/submodels/product_model.dart';
 
 class HomeRepository {
   HomeRemoteDataSource remoteDataSource;
@@ -21,5 +22,9 @@ class HomeRepository {
 
   Future<Either<BrandsModel, Failure>> getBrands() async{
     return remoteDataSource.getBrands();
+  }
+
+  Future<Either<ProductModel, Failure>> getProductDetails({required int productId}) async {
+    return remoteDataSource.getProductDetails(productId);
   }
 }

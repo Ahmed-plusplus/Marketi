@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marketi/core/utils/app_strings.dart';
-import 'package:marketi/features/home/presentation/viewmodel/home_cubit.dart';
-import 'package:marketi/features/home/presentation/viewmodel/home_states.dart';
+import 'package:marketi/features/home/presentation/viewmodel/home_cubit/home_cubit.dart';
 import 'package:marketi/features/home/presentation/views/widget/category_item_widget.dart';
 import 'package:marketi/features/home/presentation/views/widget/home_search_widget.dart';
 

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:marketi/core/utils/app_strings.dart';
 import 'package:marketi/core/widgets/custom_text_field.dart';
 import 'package:marketi/features/home/data/models/submodels/product_model.dart';
-import 'package:marketi/features/home/presentation/viewmodel/home_cubit.dart';
+import 'package:marketi/features/home/presentation/viewmodel/home_cubit/home_cubit.dart';
 import 'package:marketi/features/home/presentation/views/widget/header_home_widget.dart';
 import 'package:marketi/features/home/presentation/views/widget/product_item_widget.dart';
 import 'package:marketi/generated/assets.dart';

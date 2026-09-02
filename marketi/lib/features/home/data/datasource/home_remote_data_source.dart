@@ -7,6 +7,7 @@ import 'package:marketi/features/home/data/models/brandsModel.dart';
 import 'package:marketi/features/home/data/models/categories_model.dart';
 import 'package:marketi/features/home/data/models/product_params.dart';
 import 'package:marketi/features/home/data/models/products_model.dart';
+import 'package:marketi/features/home/data/models/submodels/product_model.dart';
 
 class HomeRemoteDataSource {
   ApiConsumer api;
@@ -35,6 +36,15 @@ class HomeRemoteDataSource {
     try{
       var response = await api.get(EndPoint.brands);
       return Left(BrandsModel.fromJson(response));
+    } on ServerException catch(e){
+      return Right(Failure(errMessage: e.errModel.errorMessage));
+    }
+  }
+
+  Future<Either<ProductModel, Failure>> getProductDetails(int productId) async{
+    try{
+      var response = await api.get('${EndPoint.products}/$productId');
+      return Left(ProductModel.fromJson(response));
     } on ServerException catch(e){
       return Right(Failure(errMessage: e.errModel.errorMessage));
     }

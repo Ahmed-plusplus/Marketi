@@ -4,7 +4,7 @@ import 'package:marketi/features/home/data/models/submodels/brand_model.dart';
 import 'package:marketi/features/home/data/models/submodels/category_model.dart';
 import 'package:marketi/features/home/data/models/submodels/product_model.dart';
 import 'package:marketi/features/home/data/repositories/home_repository.dart';
-import 'package:marketi/features/home/presentation/viewmodel/home_states.dart';
+import 'package:marketi/features/home/presentation/viewmodel/home_cubit/home_states.dart';
 
 class HomeCubit extends Cubit<HomeStates>{
   HomeCubit() : super(HomeInitStates()){

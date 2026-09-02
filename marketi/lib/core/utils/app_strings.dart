@@ -118,6 +118,7 @@ abstract class AppStrings {
   static const emailHint = 'You@gmail.com';
   static const searchHint = 'What are you looking for ?';
   static const voucherCodeHint = 'Voucher code';
+  static const freeShopping = 'Free Shopping';
 
   static hi(String name) => 'Hi $name !';
 }
